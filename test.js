@@ -1,11 +1,10 @@
-'use strict';
-var assert = require('assert');
-var isPathCwd = require('./');
+import test from 'ava';
+import m from '.';
 
-it('should check if path is cwd', function () {
-	assert(isPathCwd(process.cwd()));
-	assert(isPathCwd('.'));
-	assert(!isPathCwd('foo'));
-	assert(!isPathCwd('/'));
-	assert(!isPathCwd('..'));
+test('check if path is cwd', t => {
+	t.true(m(process.cwd()));
+	t.true(m('.'));
+	t.false(m('foo'));
+	t.false(m('/'));
+	t.false(m('..'));
 });

@@ -6,14 +6,14 @@
 ## Install
 
 ```sh
-$ npm install --save is-path-cwd
+$ npm install is-path-cwd
 ```
 
 
 ## Usage
 
 ```js
-var isPathCwd = require('is-path-cwd');
+const isPathCwd = require('is-path-cwd');
 
 isPathCwd(process.cwd());
 //=> true
@@ -25,4 +25,4 @@ isPathCwd('unicorn');
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
