@@ -1,6 +1,6 @@
 {
 	"name": "is-path-cwd",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Check if a path is CWD",
 	"license": "MIT",
 	"repository": "sindresorhus/is-path-cwd",
@@ -16,7 +16,8 @@
 		"test": "xo && ava"
 	},
 	"files": [
-		"index.js"
+		"index.js",
+		"license"
 	],
 	"keywords": [
 		"path",
