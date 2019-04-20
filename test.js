@@ -1,10 +1,10 @@
 import test from 'ava';
-import m from '.';
+import isPathCwd from '.';
 
 test('check if path is cwd', t => {
-	t.true(m(process.cwd()));
-	t.true(m('.'));
-	t.false(m('foo'));
-	t.false(m('/'));
-	t.false(m('..'));
+	t.true(isPathCwd(process.cwd()));
+	t.true(isPathCwd('.'));
+	t.false(isPathCwd('foo'));
+	t.false(isPathCwd('/'));
+	t.false(isPathCwd('..'));
 });
