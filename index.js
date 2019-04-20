@@ -1,4 +1,4 @@
 'use strict';
 const path = require('path');
 
-module.exports = input => path.resolve(input) === process.cwd();
+module.exports = path_ => path.resolve(path_) === process.cwd();
