@@ -2,18 +2,16 @@
 
 > Check if a path is the [current working directory](https://en.wikipedia.org/wiki/Working_directory)
 
-
 ## Install
 
 ```
 $ npm install is-path-cwd
 ```
 
-
 ## Usage
 
 ```js
-const isPathCwd = require('is-path-cwd');
+import isPathCwd from 'is-path-cwd';
 
 isPathCwd(process.cwd());
 //=> true
@@ -21,7 +19,6 @@ isPathCwd(process.cwd());
 isPathCwd('unicorn');
 //=> false
 ```
-
 
 ---
 

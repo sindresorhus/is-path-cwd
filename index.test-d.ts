@@ -1,4 +1,4 @@
 import {expectType} from 'tsd';
-import isPathCwd = require('.');
+import isPathCwd from './index.js';
 
 expectType<boolean>(isPathCwd('unicorn'));
