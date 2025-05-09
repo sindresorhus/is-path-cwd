@@ -2,8 +2,11 @@ import process from 'node:process';
 import test from 'ava';
 import isPathCwd from './index.js';
 
-const processCwd = process.cwd;
 const cwd = process.cwd();
+const isWindow = process.platform === 'win32';
+const reversedCaseCwd = [...cwd].map(
+	character => character[character.toLowerCase() === character ? 'toUpperCase' : 'toLowerCase'](),
+).join('');
 
 test('main', t => {
 	t.true(isPathCwd(cwd));
@@ -12,18 +15,15 @@ test('main', t => {
 	t.false(isPathCwd('/'));
 	t.false(isPathCwd('..'));
 
-	process.cwd = () => cwd.toLowerCase();
-	t.false(isPathCwd(cwd.toUpperCase()));
-	process.cwd = processCwd;
+	if (!isWindow && cwd !== reversedCaseCwd) {
+		t.false(isPathCwd(reversedCaseCwd));
+	}
 });
 
-test('win32', t => {
-	const processPlatform = process.platform;
-	Object.defineProperty(process, 'platform', {value: 'win32'});
-
-	process.cwd = () => cwd.toLowerCase();
-	t.true(isPathCwd(cwd.toUpperCase()));
-	process.cwd = processCwd;
-
-	Object.defineProperty(process, 'platform', {value: processPlatform});
-});
+if (isWindow && cwd !== reversedCaseCwd) {
+	test('win32', t => {
+		t.true(isPathCwd(cwd.toUpperCase()));
+		t.true(isPathCwd(cwd.toLowerCase()));
+		t.true(isPathCwd(reversedCaseCwd));
+	});
+}
