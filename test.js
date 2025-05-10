@@ -11,7 +11,9 @@ const reversedCaseCwd = [...cwd].map(
 
 test('main', t => {
 	t.true(isPathCwd(cwd));
+	t.true(isPathCwd(cwd + '/'));
 	t.true(isPathCwd('.'));
+	t.true(isPathCwd('./'));
 	t.false(isPathCwd('foo'));
 	t.false(isPathCwd('/'));
 	t.false(isPathCwd('..'));
