@@ -4,6 +4,7 @@ import isPathCwd from './index.js';
 
 const cwd = process.cwd();
 const isWindow = process.platform === 'win32';
+
 const reversedCaseCwd = [...cwd].map(
 	character => character[character.toLowerCase() === character ? 'toUpperCase' : 'toLowerCase'](),
 ).join('');
